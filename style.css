@@ -7,7 +7,6 @@
   --cream: #FAF7F2;
   --ink: #1A1A1A;
   --dark: #1C1410;
-  --burgundy: #6B2D2D;
   --gold: #C9973A;
   --wa-green: #25D366;
   
@@ -35,8 +34,6 @@ html {
   scrollbar-width: thin;
   scrollbar-color: var(--cream) var(--dark);
 }
-
-
 
 body {
   font-family: var(--f-sans);
@@ -69,12 +66,6 @@ img {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gold);
-}
-
-/* Firefox scrollbar — solo en html para no afectar scroll containers internos */
-html {
-  scrollbar-width: thin;
-  scrollbar-color: var(--cream) var(--dark);
 }
 
 a {
@@ -693,12 +684,6 @@ a {
   }
   .np-product {
     padding: 2.5rem 1.25rem; /* Fix: padding excesivo en mobile */
-  }
-  .np-btn {
-    width: 100%;
-    padding: 1.3rem 1rem;
-    font-size: 1rem;
-    font-weight: 600;
   }
   .np-shop-note, .np-shop-trust {
     font-size: 0.85rem;
