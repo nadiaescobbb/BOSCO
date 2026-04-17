@@ -36,20 +36,7 @@ html {
   scrollbar-color: var(--cream) var(--dark);
 }
 
-/* Custom Scrollbar (WebKit) */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--dark);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--cream);
-  border-radius: 0; /* Keep it brutalist */
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--gold);
-}
+
 
 body {
   font-family: var(--f-sans);
@@ -182,6 +169,11 @@ a {
   background: var(--cream);
   color: var(--dark);
 }
+.np-nav-cta:focus-visible,
+.np-nav-brand:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
 
 /* ════════════════════════════════════════════════
    HERO FULL BLEED
@@ -246,7 +238,7 @@ a {
 }
 .np-hero-sub {
   color: var(--cream);
-  font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
   text-transform: uppercase;
   letter-spacing: 0.25em;
   font-family: var(--f-sans);
@@ -256,7 +248,7 @@ a {
   text-align: center;
   align-self: center;
   max-width: 600px;
-  opacity: 0.7;
+  opacity: 0.85;
   margin-left: 0;
 }
 
@@ -267,7 +259,7 @@ a {
   padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
   text-align: left;
   max-width: 900px;
-  margin-left: 0;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -360,6 +352,9 @@ a {
   z-index: 10;
   text-shadow: none;
   pointer-events: none;
+  padding: 0 1rem;
+  width: 100%;
+  text-align: center;
 }
 
 /* ════════════════════════════════════════════════
@@ -441,7 +436,8 @@ a {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  aspect-ratio: 21/9;
+  aspect-ratio: 16/9;
+  min-height: 300px;
   overflow: hidden;
   border: 2px solid rgba(250, 247, 242, 0.1);
   border-bottom: none;
@@ -582,7 +578,7 @@ a {
 
 .np-shop-note {
   font-size: 0.75rem;
-  color: rgba(250, 247, 242, 0.4);
+  color: rgba(250, 247, 242, 0.65);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -637,7 +633,7 @@ a {
   height: 56px;
   background: var(--wa-green);
   color: #fff;
-  border-radius: 50%;
+  border-radius: 50% !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -699,6 +695,7 @@ a {
     gap: 1px;
   }
   .np-grid-half {
+    grid-template-columns: 1fr; /* Fix: 1 col en mobile */
     gap: 1px;
   }
   .np-manifesto {
@@ -710,13 +707,8 @@ a {
   .np-shop {
     padding: 3rem 1rem;
   }
-  .np-pi-top {
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: flex-start;
-  }
-  .np-price-block {
-    align-items: flex-start;
+  .np-product {
+    padding: 2.5rem 1.25rem; /* Fix: padding excesivo en mobile */
   }
   .np-btn {
     width: 100%;
@@ -728,8 +720,18 @@ a {
     font-size: 0.85rem;
     line-height: 1.4;
   }
+  .np-shop-trust {
+    font-weight: 400; /* Fix: legibilidad en mobile */
+  }
   .np-footer-location {
     opacity: 0.8 !important;
     font-size: 0.8rem !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .np-huge-text {
+    font-size: 2.2rem; /* Fix: overflow en pantallas muy chicas */
+    line-height: 1;
   }
 }
