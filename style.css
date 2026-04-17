@@ -71,8 +71,8 @@ img {
   background: var(--gold);
 }
 
-/* Firefox support */
-* {
+/* Firefox scrollbar — solo en html para no afectar scroll containers internos */
+html {
   scrollbar-width: thin;
   scrollbar-color: var(--cream) var(--dark);
 }
@@ -387,6 +387,15 @@ a {
   font-size: 1.1rem;
   line-height: 1.6;
 }
+.np-manifesto-cols h3 {
+  font-family: var(--f-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
 .np-manifesto-cols strong {
   display: block;
   font-family: var(--f-sans);
@@ -418,7 +427,7 @@ a {
   font-size: 0.9rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(250, 247, 242, 0.5);
+  color: rgba(250, 247, 242, 0.72); /* Fix: contraste ~3.8:1 sobre --dark */
   margin-top: 1rem;
 }
 
@@ -549,31 +558,6 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-}
-.np-discount {
-  font-family: var(--f-sans);
-  font-size: 0.9rem;
-  color: var(--gold);
-  letter-spacing: 0.05em;
-}
-.np-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem 4rem;
-  background: var(--cream);
-  color: var(--dark);
-  font-family: var(--f-sans);
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  border: 1px solid var(--cream);
-  transition: background 250ms ease, color 250ms ease;
-}
-.np-btn:hover {
-  background: transparent;
-  color: var(--cream);
 }
 
 .np-shop-note {
