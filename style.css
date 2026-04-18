@@ -91,25 +91,32 @@ a {
   left: -100%;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.045;
+  opacity: 0.03; /* Kowalski: Soul, not noise */
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   animation: grain 0.8s steps(1) infinite;
 }
 
 /* ════════════════════════════════════════════════
-   ANIMATION BASE (KOWALSKI)
+   ANIMATION BASE (KOWALSKI REFINED)
    ════════════════════════════════════════════════ */
 [data-enter] {
   opacity: 0;
-  transform: translate3d(0, 8px, 0);
+  transform: translate3d(0, 10px, 0);
   will-change: transform, opacity;
-  transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
-              transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 [data-enter].is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
+
+/* Stagger Utilities */
+.stagger-1 { transition-delay: 100ms !important; }
+.stagger-2 { transition-delay: 200ms !important; }
+.stagger-3 { transition-delay: 300ms !important; }
+.stagger-4 { transition-delay: 400ms !important; }
+.stagger-5 { transition-delay: 500ms !important; }
 
 /* ════════════════════════════════════════════════
    NAV
@@ -155,11 +162,15 @@ a {
   letter-spacing: 0.1em;
   border: 1px solid var(--cream);
   padding: 0.5rem 1rem;
-  transition: background 250ms ease, color 250ms ease;
+  transition: background 250ms ease, color 250ms ease, transform 100ms ease;
 }
 .np-nav-cta:hover {
   background: var(--cream);
   color: var(--dark);
+}
+.np-nav-cta:active,
+.np-nav-brand:active {
+  transform: scale(0.96); /* Tactile feedback */
 }
 .np-nav-cta:focus-visible,
 .np-nav-brand:focus-visible {
@@ -310,6 +321,12 @@ a {
   height: 100%;
   aspect-ratio: 4/5;
   object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 0.4s ease;
+}
+.np-relative:hover img {
+  transform: scale(1.03);
+  filter: brightness(1.1);
 }
 /* Fix: box_closed.png tiene el sujeto en la parte inferior — evita recortar el producto */
 .np-grid-half .np-relative:first-child img {
@@ -544,12 +561,15 @@ a {
   color: #1C1410;
   border: none;
   text-decoration: none;
-  transition: opacity 250ms ease;
+  transition: transform 150ms ease, background 250ms ease, opacity 250ms ease;
 }
 .np-btn-inline:hover {
   background: var(--gold);
   color: var(--dark);
   opacity: 1;
+}
+.np-btn-inline:active {
+  transform: scale(0.97);
 }
 .np-shop-actions {
   max-width: 1000px;
