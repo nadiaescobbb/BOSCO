@@ -55,7 +55,7 @@ Inspirado por el trabajo de **Emil Kowalski**, el sistema de movimiento de BOSCO
 ## 👤 Autor & Agencia
 Proyecto desarrollado para **BOSCO Argentina**.
 Estudio: **Trama Studio**
-Desarrolladora: [Tu Nombre/GitHub]
+Desarrolladora: [nadiaescobbb]
 
 ---
 
