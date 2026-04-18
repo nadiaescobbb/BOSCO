@@ -101,13 +101,14 @@ a {
    ════════════════════════════════════════════════ */
 [data-enter] {
   opacity: 0;
-  transform: translateY(14px);
+  transform: translate3d(0, 8px, 0);
+  will-change: transform, opacity;
   transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
               transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 [data-enter].is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
 
 /* ════════════════════════════════════════════════
@@ -171,7 +172,8 @@ a {
    ════════════════════════════════════════════════ */
 .np-hero {
   position: relative;
-  height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -251,6 +253,8 @@ a {
   text-align: left;
   max-width: 900px;
   margin: 0 auto;
+  contain: paint; /* Isolate animations from document flow */
+  min-height: 200px; /* Space reservation */
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -359,6 +363,7 @@ a {
   padding: clamp(5rem, 12vw, 10rem) clamp(1.5rem, 5vw, 4rem);
   background: var(--cream);
   color: var(--dark);
+  contain: paint;
 }
 .np-huge-text {
   font-family: var(--f-serif);
@@ -406,7 +411,8 @@ a {
    ════════════════════════════════════════════════ */
 .np-shop {
   padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
-  background: var(--dark);
+  background-color: var(--dark);
+  contain: paint;
 }
 .np-shop-header {
   text-align: center;
