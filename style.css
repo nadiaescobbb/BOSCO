@@ -314,6 +314,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center; /* Aseguramos centrado en mobile */
   z-index: 1;
   filter: brightness(0.7) contrast(1.1);
 }
@@ -1037,7 +1038,6 @@ a {
 
   .declaracion,
   .argumento,
-  .ficha,
   .adquisicion,
   .archivo {
     padding-left: 0;
@@ -1046,36 +1046,59 @@ a {
 
   .declaracion-inner,
   .argumento-inner,
-  .ficha-inner,
   .adquisicion-inner,
   .archivo-inner {
     padding: 0 var(--s-10);
   }
 }
 
+@media (max-width: 1024px) {
+  :root {
+    --s-12: 80px;
+    --s-16: 100px;
+    --s-20: 120px;
+  }
+}
+
 @media (max-width: 900px) {
-  .argumento-cols {
+  .nav {
+    padding: 0 var(--s-4);
+  }
+
+  .declaracion-grid {
     grid-template-columns: 1fr;
     gap: var(--s-6);
   }
 
-  .ficha-datos {
-    grid-template-columns: repeat(2, 1fr);
+  .decl-col-index {
+    display: none;
+  }
+
+  .argumento-cols {
+    grid-template-columns: 1fr;
+    gap: var(--s-6);
   }
 
   .productos-grid {
     grid-template-columns: 1fr;
   }
 
-  .proxima-item {
-    grid-template-columns: 60px 1fr auto;
-    gap: var(--s-2);
+  .lookbook-grid-half {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 600px) {
+  :root {
+    --s-6: 32px;
+    --s-8: 40px;
+    --s-10: 48px;
+    --s-12: 64px;
+  }
+
   .nav {
-    padding: var(--s-2) var(--s-2);
+    height: 60px;
+    padding: 0 var(--s-3);
   }
 
   .nav-tag {
@@ -1083,64 +1106,114 @@ a {
   }
 
   .hero-content {
-    padding: 0 var(--s-2) var(--s-10);
+    padding: 0 var(--s-3) var(--s-10);
+    gap: var(--s-1);
   }
 
-  .lookbook-grid-half {
-    grid-template-columns: 1fr;
+  .hero-title {
+    font-size: clamp(4.5rem, 24vw, 8rem);
+    line-height: 0.8;
+  }
+
+  .declaracion {
+    padding: var(--s-10) var(--s-3);
+  }
+
+  .declaracion-texto {
+    font-size: 1.8rem;
+    line-height: 1.15;
   }
 
   .lookbook-item img {
-    aspect-ratio: 3/4;
-  }
-
-  .lookbook-full img {
     aspect-ratio: 4/5;
   }
 
-  .ficha-datos {
-    grid-template-columns: 1fr 1fr;
+  .lookbook-full img {
+    aspect-ratio: 1/1;
+  }
+
+  .argumento {
+    padding: var(--s-10) var(--s-3);
+  }
+
+  .argumento-col-titulo h2 {
+    font-size: 3.2rem;
+  }
+
+  .contador-number {
+    font-size: clamp(6rem, 30vw, 12rem);
   }
 
   .fullbleed img {
     aspect-ratio: 3/4;
   }
 
-  .proxima-item {
-    grid-template-columns: 48px 1fr;
-    gap: var(--s-1);
+  .fullbleed-text {
+    font-size: clamp(3rem, 15vw, 6rem);
   }
 
-  .proxima-estado {
+  .adquisicion {
+    padding: var(--s-10) var(--s-3);
+  }
+
+  .adquisicion-header h2 {
+    font-size: 3.2rem;
+  }
+
+  .producto {
+    padding: var(--s-6) var(--s-4);
+  }
+
+  .producto-num {
+    font-size: 4rem;
+  }
+
+  .archivo-row {
+    grid-template-columns: 40px 1fr 100px;
+    font-size: 0.65rem;
+    padding: var(--s-3) 0;
+  }
+
+  .archivo-row.header {
     display: none;
   }
 
   .footer-top {
-    padding: var(--s-3) var(--s-2);
+    flex-direction: column;
+    gap: var(--s-3);
+    padding: var(--s-6) var(--s-3);
+    text-align: center;
   }
 
   .footer-location {
-    padding: var(--s-1) var(--s-2);
+    text-align: center;
+    padding: var(--s-3) 0;
   }
 
-  .adquisicion-trust p {
-    font-size: 0.75rem;
+  .fab-wa {
+    width: 48px;
+    height: 48px;
+    bottom: var(--s-3);
+    right: var(--s-3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   }
 
-  .producto {
-    padding: var(--s-5) var(--s-3);
+  /* Ajuste de padding inferior para evitar colisión con FAB */
+  .footer {
+    padding-bottom: 80px;
   }
 }
 
 @media (max-width: 400px) {
-  .ficha-datos {
-    grid-template-columns: 1fr;
+  .hero-title {
+    font-size: 5rem;
   }
 
-  .fullbleed-text {
-    font-size: 3.5rem;
+  .declaracion-texto {
+    font-size: 1.6rem;
   }
 }
+
 
 /* UI Refinements */
 .paper-texture {
