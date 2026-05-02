@@ -11,7 +11,6 @@
   --wa: #25D366;
 
   --f-display: "Barlow Condensed", sans-serif;
-  --f-serif:   "Instrument Serif", serif;
   --f-data: "Space Mono", monospace;
 
   /* 8pt grid */
@@ -439,10 +438,10 @@ a {
 }
 
 .declaracion-texto {
-  font-family: var(--f-serif);
-  font-weight: 400;
-  font-size: clamp(1.6rem, 4vw, 2.6rem);
-  line-height: 1.2;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   color: var(--cream);
