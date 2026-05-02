@@ -83,8 +83,17 @@ body {
   overflow-x: hidden;
   position: relative;
   background-color: var(--bg);
-  background-image: var(--vignette); /* Profundidad visual */
-  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100svh;
+  background-image: var(--vignette);
+  pointer-events: none;
+  z-index: -1;
 }
 
 img {
