@@ -449,12 +449,6 @@ a {
   max-width: 800px;
 }
 
-.decl-highlight {
-  color: var(--accent);
-  display: inline; /* Cambiado a inline para no romper el ritmo de lectura */
-  font-weight: 500;
-}
-
 /* Lookbook */
 .lookbook {
   display: flex;
