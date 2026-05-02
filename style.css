@@ -1084,11 +1084,6 @@ a {
     display: none;
   }
 
-  .argumento-cols {
-    grid-template-columns: 1fr;
-    gap: var(--s-6);
-  }
-
   .productos-grid {
     grid-template-columns: 1fr;
   }
@@ -1113,6 +1108,11 @@ a {
 
   .nav-tag {
     display: none;
+  }
+
+  .argumento-cols {
+    grid-template-columns: 1fr;
+    gap: var(--s-6);
   }
 
   .hero-content {
