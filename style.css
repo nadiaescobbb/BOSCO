@@ -82,6 +82,7 @@ body {
   line-height: 1.5;
   overflow-x: hidden;
   position: relative;
+  background-color: var(--bg);
   background-image: var(--vignette); /* Profundidad visual */
   background-attachment: fixed;
 }
