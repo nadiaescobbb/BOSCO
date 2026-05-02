@@ -507,6 +507,39 @@ a {
   padding: 4px 8px;
 }
 
+/* Social Proof */
+.social-proof {
+  padding: var(--s-10) var(--s-4);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.social-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.social-proof blockquote {
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 0.9;
+  color: var(--cream);
+  text-transform: uppercase;
+  margin-bottom: var(--s-3);
+  letter-spacing: -0.02em;
+}
+
+.social-proof cite {
+  font-family: var(--f-data);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  font-style: normal;
+}
+
 /* Argumento */
 .argumento {
   padding: clamp(var(--s-10), 12vw, var(--s-20)) var(--s-4);
@@ -860,6 +893,56 @@ a {
 .adquisicion-trust a {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* Micro-copy */
+.micro-copy {
+  font-family: var(--f-data);
+  font-size: 0.55rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: var(--s-2);
+  text-align: center;
+}
+
+/* FAQ */
+.faq {
+  margin-top: var(--s-10);
+  padding-top: var(--s-10);
+  border-top: 1px dashed var(--border);
+}
+
+.faq-title {
+  font-family: var(--f-display);
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: var(--s-6);
+  text-align: center;
+  line-height: 1;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--s-6);
+  text-align: left;
+}
+
+.faq-item h4 {
+  font-family: var(--f-data);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: var(--s-1);
+}
+
+.faq-item p {
+  font-family: var(--f-data);
+  font-size: 0.65rem;
+  color: var(--muted);
+  line-height: 1.6;
 }
 
 /* Archivo Registry */
