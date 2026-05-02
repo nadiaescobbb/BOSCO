@@ -588,6 +588,10 @@ a {
   border-bottom: 1px solid var(--border);
 }
 
+.contador .section-index {
+  text-align: left;
+}
+
 .contador-inner {
   max-width: 1100px;
   margin: 0 auto;
