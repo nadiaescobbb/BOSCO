@@ -1111,7 +1111,7 @@ a {
   }
 
   .hero-title {
-    font-size: clamp(4.5rem, 24vw, 8rem);
+    font-size: clamp(3.5rem, 19vw, 6.5rem);
     line-height: 0.8;
   }
 
@@ -1206,7 +1206,7 @@ a {
 
 @media (max-width: 400px) {
   .hero-title {
-    font-size: 5rem;
+    font-size: 18vw;
   }
 
   .declaracion-texto {
