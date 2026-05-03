@@ -855,7 +855,6 @@ a {
    FOOTER
    ════════════════════════════════════════════════ */
 .footer {
-  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -898,7 +897,7 @@ a {
 /* ════════════════════════════════════════════════
    FAB WHATSAPP
    ════════════════════════════════════════════════ */
-.fab-wa {
+.flotante-contacto {
   position: fixed;
   bottom: var(--s-3);
   right: var(--s-3);
@@ -915,11 +914,11 @@ a {
   transition: transform 200ms ease;
 }
 
-.fab-wa:hover {
+.flotante-contacto:hover {
   transform: translateY(-2px);
 }
 
-.fab-wa:active {
+.flotante-contacto:active {
   transform: scale(0.92);
 }
 
@@ -1060,7 +1059,7 @@ a {
     padding-bottom: 72px;
   }
 
-  .fab-wa {
+  .flotante-contacto {
     width: 48px;
     height: 48px;
   }
