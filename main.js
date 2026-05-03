@@ -42,27 +42,32 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('[data-enter]').forEach(el => observer.observe(el));
 
-/* Nu-Brutalism: Magnetic Buttons */
-const magneticElements = document.querySelectorAll('.producto-cta, .archivo-cta, .fab-wa');
+/* Nu-Brutalism: Magnetic Buttons (solo en desktop) */
+if (window.matchMedia('(hover: hover)').matches) {
+  const magneticElements = document.querySelectorAll('.producto-cta, .archivo-cta');
 
-magneticElements.forEach(el => {
-  el.addEventListener('mousemove', (e) => {
-    const rect = el.getBoundingClientRect();
-    const h = rect.width / 2;
-    const v = rect.height / 2;
-    const x = e.clientX - rect.left - h;
-    const y = e.clientY - rect.top - v;
-    
-    // Fuerza magnética física
-    el.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
-  });
+  magneticElements.forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      // Para evitar el loop de rect, obtenemos el centro de manera aproximada
+      const rect = el.getBoundingClientRect();
+      const h = rect.width / 2;
+      const v = rect.height / 2;
+      
+      // x e y en relación al centro original de la caja
+      const x = e.clientX - rect.left - h;
+      const y = e.clientY - rect.top - v;
+      
+      // Amortiguamos fuertemente el movimiento para que no se escape
+      el.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+    });
 
-  el.addEventListener('mouseenter', () => {
-    el.style.transition = 'none';
-  });
+    el.addEventListener('mouseenter', () => {
+      el.style.transition = 'none';
+    });
 
-  el.addEventListener('mouseleave', () => {
-    el.style.transition = 'transform 400ms cubic-bezier(0.25, 1, 0.5, 1)';
-    el.style.transform = `translate(0px, 0px)`;
+    el.addEventListener('mouseleave', () => {
+      el.style.transition = 'transform 400ms cubic-bezier(0.25, 1, 0.5, 1)';
+      el.style.transform = `translate(0px, 0px)`;
+    });
   });
-});
+}
