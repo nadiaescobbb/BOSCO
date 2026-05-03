@@ -445,7 +445,6 @@ a {
 .contador {
   margin-top: var(--s-5);
   padding-top: var(--s-5);
-  border-top: 1px solid var(--line);
 }
 
 .contador-display {
