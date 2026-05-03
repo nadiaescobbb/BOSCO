@@ -260,10 +260,10 @@ a {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom,
-      rgba(14, 13, 11, 0.55) 0%,
-      rgba(14, 13, 11, 0.05) 35%,
-      rgba(14, 13, 11, 0.1) 55%,
-      rgba(14, 13, 11, 0.92) 100%);
+      rgba(14, 13, 11, 0.72) 0%,
+      rgba(14, 13, 11, 0.15) 40%,
+      rgba(14, 13, 11, 0.12) 58%,
+      rgba(14, 13, 11, 0.9) 100%);
   z-index: 2;
 }
 
@@ -301,7 +301,7 @@ a {
   font-size: clamp(0.65rem, 1.1vw, 0.8rem);
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: rgba(242, 237, 230, 0.65);
+  color: var(--muted);
   margin-top: var(--s-1);
 }
 
@@ -981,11 +981,8 @@ a {
   }
 
   .hero { min-height: 85svh; }
-  .hero-content {
-    padding: 0 var(--s-3) 10svh;
-    justify-content: flex-end;
-  }
-  .hero-title { font-size: clamp(5.5rem, 48vw, 14rem); }
+  .hero-content { padding: 0 var(--s-3) 12svh; }
+  .hero-title   { font-size: clamp(5rem, 38vw, 12rem); }
 
   .declaracion {
     padding: var(--s-10) var(--s-3);
@@ -1074,11 +1071,16 @@ a {
 }
 
 @media (max-width: 400px) {
+  /* Mantener proporciones iguales al 430px — 38vw a 375px = 142px, similar al 430px */
   .hero-title {
-    font-size: 18vw;
+    font-size: 38vw;
+  }
+
+  .hero-content {
+    padding: 0 var(--s-3) 10svh;
   }
 
   .declaracion-texto {
-    font-size: 1.6rem;
+    font-size: 1.35rem;
   }
 }
