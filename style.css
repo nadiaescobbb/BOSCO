@@ -213,6 +213,32 @@ a {
   opacity: 1;
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--s-6);
+  list-style: none;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.nav.scrolled .nav-links {
+  opacity: 1;
+}
+
+.nav-links a {
+  font-family: var(--f-data);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  transition: color 200ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--cream);
+}
+
 .nav-cta {
   font-family: var(--f-data);
   font-size: 0.6rem;
@@ -978,6 +1004,10 @@ a {
   .nav {
     padding: 0 var(--s-3);
     height: 56px;
+  }
+
+  .nav-links {
+    display: none;
   }
 
   .hero { min-height: 100svh; }
