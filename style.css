@@ -860,7 +860,7 @@ a {
 }
 
 .footer-top {
-  padding: var(--s-4) var(--s-6);
+  padding: var(--s-4) var(--s-8);
   display: flex;
   justify-content: space-between;
   font-family: var(--f-data);
