@@ -980,8 +980,8 @@ a {
     height: 56px;
   }
 
-  .hero { min-height: 85svh; }
-  .hero-content { padding: 0 var(--s-3) 12svh; }
+  .hero { min-height: 100svh; }
+  .hero-content { padding: 0 var(--s-3) var(--s-8); }
   .hero-title   { font-size: clamp(5rem, 38vw, 12rem); }
 
   .declaracion {
