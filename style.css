@@ -45,9 +45,6 @@ html {
   scroll-behavior: smooth;
   background-color: var(--bg);
   color: var(--cream);
-  overflow-x: hidden;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(242, 237, 230, 0.2) var(--bg);
 }
 
 ::-webkit-scrollbar {
@@ -77,6 +74,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
   overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(242, 237, 230, 0.2) var(--bg);
 }
 
 img {
