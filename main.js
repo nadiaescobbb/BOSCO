@@ -2,64 +2,67 @@
 
 /* Nav scroll state */
 const nav = document.getElementById('nav');
-
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
 
-/* Scroll reveal */
-const animateValue = (obj, start, end, duration) => {
-  let startTimestamp = null;
-  const step = (timestamp) => {
-    if (!startTimestamp) startTimestamp = timestamp;
-    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-    obj.innerText = Math.floor(progress * (end - start) + start);
-    if (progress < 1) {
-      window.requestAnimationFrame(step);
-    }
+/* Animación del contador */
+const animateValue = (el, start, end, duration) => {
+  let startTs = null;
+  const step = (ts) => {
+    if (!startTs) startTs = ts;
+    const progress = Math.min((ts - startTs) / duration, 1);
+    el.innerText = Math.floor(progress * (end - start) + start);
+    if (progress < 1) requestAnimationFrame(step);
   };
-  window.requestAnimationFrame(step);
+  requestAnimationFrame(step);
 };
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        
-        const counters = entry.target.querySelectorAll('[data-count]');
-        if (counters.length > 0) {
-          setTimeout(() => {
-            counters.forEach(counter => {
-              const target = parseInt(counter.getAttribute('data-count'));
-              animateValue(counter, 0, target, 1500);
-            });
-          }, 300);
-        }
+/* Scroll reveal */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('is-visible');
 
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 0.05,
-    rootMargin: '0px 0px 50px 0px',
-  }
-);
+    const counters = entry.target.querySelectorAll('[data-count]');
+    if (counters.length) {
+      setTimeout(() => {
+        counters.forEach(c => {
+          animateValue(c, 0, parseInt(c.dataset.count), 1400);
+        });
+      }, 250);
+    }
 
-document.querySelectorAll('[data-enter]').forEach((el) => observer.observe(el));
+    observer.unobserve(entry.target);
+  });
+}, {
+  threshold: 0.08,
+  rootMargin: '0px 0px 40px 0px',
+});
 
-/* Magnetic interactions */
-document.querySelectorAll('.btn-magnetic').forEach(btn => {
-  btn.addEventListener('mousemove', (e) => {
-    const rect = btn.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
+document.querySelectorAll('[data-enter]').forEach(el => observer.observe(el));
+
+/* Nu-Brutalism: Magnetic Buttons */
+const magneticElements = document.querySelectorAll('.producto-cta, .archivo-cta, .fab-wa');
+
+magneticElements.forEach(el => {
+  el.addEventListener('mousemove', (e) => {
+    const rect = el.getBoundingClientRect();
+    const h = rect.width / 2;
+    const v = rect.height / 2;
+    const x = e.clientX - rect.left - h;
+    const y = e.clientY - rect.top - v;
     
-    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    // Fuerza magnética física
+    el.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
   });
 
-  btn.addEventListener('mouseleave', () => {
-    btn.style.transform = `translate(0px, 0px)`;
+  el.addEventListener('mouseenter', () => {
+    el.style.transition = 'none';
+  });
+
+  el.addEventListener('mouseleave', () => {
+    el.style.transition = 'transform 400ms cubic-bezier(0.25, 1, 0.5, 1)';
+    el.style.transform = `translate(0px, 0px)`;
   });
 });
