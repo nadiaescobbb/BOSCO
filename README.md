@@ -1,30 +1,48 @@
-# BOSCO — Edición 01 🇦🇷
+# BOSCO — Edición 01
 
-Landing page hiper-optimizada desarrollada para **BOSCO Argentina**. Diseñada bajo una estética brutalista/editorial para posicionar un producto tradicional (el alfajor de maicena) dentro de la cultura del "hype" y las ediciones limitadas.
-
-## ⚡ Tech Stack & Performance
-Este proyecto fue construido priorizando la velocidad extrema y la fluidez visual sin depender de frameworks pesados:
-- **Core:** Vanilla HTML5, CSS3, JavaScript (ES6+).
-- **Animaciones:** Interacciones por scroll y UI magnética garantizando 60fps continuos.
-- **SEO Técnico:** Estructura semántica (HTML5), Schema Markup (JSON-LD para LocalBusiness/Products), Sitemap y optimización para rastreo de Google.
-- **Arquitectura CSS:** Sistema de variables (Tokens), grillas fluidas y tipografía escalable (`clamp`).
-
-## 📐 Diseño & UX
-El concepto visual (por **Trama Studio**) toma inspiración de la moda streetwear y el diseño editorial crudo:
-- **Brutalismo Tipográfico:** Tipografía masiva y uso estricto del alto contraste.
-- **Sistema de Archivo:** Interfaz que simula un registro técnico para generar escasez y urgencia (FOMO).
-- **Conversión Directa:** Embudos de venta de fricción nula con derivación inteligente a WhatsApp.
+Landing page para BOSCO Argentina, una marca de alfajores artesanales de edición limitada. El sitio está en producción en [universobosco.com.ar](https://universobosco.com.ar).
 
 ---
 
-## 👩‍💻 Desarrollo & Agencia
+## Qué es el proyecto
 
-**Desarrollado por Trama Studio**  
-Especialistas en Frontend Development, UX/UI Design y Performance Web. 
+BOSCO lanza el clásico alfajor de maicena en formato coleccionable: 75 unidades numeradas, con tarjeta incluida. El reto era construir una página que transmitiera esa exclusividad y mandara la venta directo a WhatsApp, sin carritos ni plataformas de terceros.
 
-Transformamos marcas a través de experiencias digitales de alta gama. Si buscás código ultraligero, diseño vanguardista y webs que conviertan, hablemos.
+---
 
-- **Agencia:** [@trama.sstudio](https://instagram.com/trama.sstudio)
-- **GitHub:** [@nadiaescobbb](https://github.com/nadiaescobbb)
+## Stack
 
-*Resistencia, Chaco, Argentina.*
+HTML5 · CSS3 · JavaScript vanilla (ES6+)
+
+Sin frameworks. Sin librerías. El JS que tiene son ~70 líneas para las animaciones de scroll y el efecto magnético en los botones. El resto es HTML y CSS puro.
+
+- Animaciones con Intersection Observer API
+- Tipografía responsive con `clamp()`
+- SEO: Schema Markup JSON-LD, Open Graph, sitemap y robots.txt
+- CSS organizado con variables custom properties desde el principio
+
+---
+
+## Estructura
+
+```
+bosco/
+├── index.html      
+├── style.css       
+├── main.js         
+├── assets/         
+├── sitemap.xml
+└── robots.txt
+```
+
+---
+
+## Desarrollado por
+
+**Nadia Escobar** — trabajo como freelance bajo el nombre Trama Studio.
+
+Me gusta hacer sitios sin dependencias innecesarias, donde entiendo cada línea de lo que escribo. Este proyecto lo hice de punta a punta: concepto, diseño y código.
+
+- Instagram: [@trama.sstudio](https://instagram.com/trama.sstudio)
+- GitHub: [@nadiaescobbb](https://github.com/nadiaescobbb)
+- Resistencia, Chaco · Trabajo remoto
