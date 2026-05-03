@@ -860,7 +860,7 @@ a {
 }
 
 .footer-top {
-  padding: var(--s-4);
+  padding: var(--s-4) var(--s-6);
   display: flex;
   justify-content: space-between;
   font-family: var(--f-data);
@@ -910,7 +910,7 @@ a {
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-  z-index: 1000;
+  z-index: 99999;
   transition: transform 200ms ease;
 }
 
