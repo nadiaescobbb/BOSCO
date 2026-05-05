@@ -60,12 +60,18 @@
 
   <nav class="nav" id="nav">
     <a href="#hero" class="nav-brand">BOSCO.</a>
-    <ul class="nav-links">
-      <li><a href="#galeria">GALERÍA</a></li>
-      <li><a href="#adquisicion">ADQUIRIR</a></li>
-      <li><a href="#registro">ARCHIVO</a></li>
-    </ul>
-    <a href="#adquisicion" class="nav-cta">Adquirir</a>
+      <div class="nav-links">
+        <a href="#galeria">GALERÍA</a>
+        <a href="#adquirir">ADQUIRIR</a>
+        <a href="#archivo">ARCHIVO</a>
+      </div>
+      
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+      </button>
+      
+      <a href="#adquirir" class="nav-cta">ADQUIRIR</a>
   </nav>
 
   <header class="hero" id="hero">
@@ -80,7 +86,6 @@
       <h1 class="hero-title" data-enter>BOSCO</h1>
       <p class="hero-sub" data-enter>Cultura argentina en formato comestible.</p>
     </div>
-    <div class="hero-scroll-hint" data-enter aria-hidden="true">↓</div>
   </header>
 
   <main>
@@ -234,12 +239,6 @@
             <div class="arch-col-name">PRÓXIMO REGISTRO EN CURSO...</div>
             <div class="arch-col-status">PENDIENTE</div>
           </div>
-        </div>
-
-        <div class="archivo-footer" data-enter>
-          <a href="https://wa.me/5493624696824?text=Hola%20Lautaro%2C%20quiero%20anotarme%20para%20las%20pr%C3%B3ximas%20ediciones%20BOSCO." class="archivo-link" target="_blank" rel="noopener">
-            <span>Suscripción al Registro →</span>
-          </a>
         </div>
       </div>
     </section>

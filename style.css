@@ -86,7 +86,8 @@ a {
   will-change: transform, opacity;
 }
 
-[data-enter].is-visible {
+[data-enter].is-visible,
+.hero [data-enter] {
   opacity: 1;
   transform: translateY(0);
 }
@@ -156,15 +157,95 @@ a {
 .nav {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 40px;
+  padding: 32px 40px;
   z-index: 1000;
   background: transparent;
   backdrop-filter: blur(0px);
-  transition: padding 0.4s var(--ease), background 0.4s var(--ease), backdrop-filter 0.4s var(--ease), border-bottom 0.4s var(--ease);
+  transition: all 0.4s var(--ease);
+}
+
+.nav.scrolled {
+  padding: 20px 40px;
+  background: rgba(17, 13, 11, 0.6);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+  position: relative;
+  z-index: 1001;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--cream);
+  position: absolute;
+  transition: all 0.4s var(--ease);
+}
+
+.nav-toggle span:first-child { top: 0; }
+.nav-toggle span:last-child { bottom: 0; }
+
+.nav.menu-active .nav-toggle span:first-child {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.nav.menu-active .nav-toggle span:last-child {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+  .nav { padding: 20px 24px; }
+  .nav-toggle { display: block; }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(17, 13, 11, 0.98);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.5s var(--ease);
+    z-index: 1000;
+  }
+
+  .nav.menu-active .nav-links {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-links a {
+    font-family: var(--f-display);
+    font-size: 3rem;
+    font-style: italic;
+    color: var(--cream);
+    text-decoration: none;
+  }
+  
+  .nav-cta { display: none; } /* Hide CTA in nav pill on mobile, show inside menu or keep as brand logo focus */
 }
 
 .nav.scrolled {
@@ -212,12 +293,16 @@ a {
    ════════════════════════════════════════════════ */
 .hero {
   position: relative;
-  min-height: 100dvh;
+  min-height: 100vh;
   width: 100%;
-  display: flex;
-  align-items: flex-end;
-  padding: 0 40px 80px 40px;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 40px;
   overflow: hidden;
+  background: var(--bg);
+  text-align: center;
 }
 
 .hero-bg {
@@ -226,21 +311,80 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
-  filter: brightness(0.6);
+  z-index: 0;
+  filter: brightness(0.4);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent, rgba(17,13,11,0.8));
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.hero-header {
+  font-family: var(--f-data);
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 8px;
 }
 
 .hero-title {
   font-family: var(--f-display);
-  font-size: clamp(6rem, 24vw, 18rem);
+  font-size: clamp(4.5rem, 18vw, 15rem);
   font-weight: 900;
   font-style: italic;
   text-transform: uppercase;
-  line-height: 0.75;
+  line-height: 0.8;
   color: var(--cream);
-  margin-left: -0.05em;
+  margin: 0;
   letter-spacing: -0.04em;
-  text-wrap: balance;
+}
+
+.hero-sub {
+  font-family: var(--f-sans);
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  max-width: 600px;
+}
+
+@media (max-width: 900px) {
+  .hero { 
+    min-height: 100vh !important;
+    display: flex !important;
+    padding: 100px 24px 160px 24px; 
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .hero [data-enter] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero-header { 
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    letter-spacing: 0.2em; 
+    font-size: 9px; 
+  }
+  .hero-title { font-size: clamp(3.5rem, 18vw, 8rem) !important; }
+  .hero-sub { font-size: 0.8rem; max-width: 90%; margin: 0 auto; }
 }
 
 /* ════════════════════════════════════════════════
@@ -251,6 +395,12 @@ a {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
+  min-height: 50vh;
+  display: block !important;
+}
+
+@media (max-width: 900px) {
+  .declaracion { padding: 100px 24px; }
 }
 
 .capitulo-num {
@@ -289,6 +439,14 @@ a {
   gap: 32px;
 }
 
+@media (max-width: 900px) {
+  .manifesto-bento { padding: 80px 24px; }
+  .bento-grid { 
+    grid-template-columns: 1fr; 
+    gap: 20px;
+  }
+}
+
 .bento-card {
   position: relative;
   background: rgba(255, 255, 255, 0.03);
@@ -307,7 +465,6 @@ a {
 
 .card-inner {
   background: #15110f;
-  /* Slightly lighter than pure bg for depth */
   height: 100%;
   width: 100%;
   border-radius: calc(2.5rem - 1px);
@@ -318,6 +475,10 @@ a {
   position: relative;
   overflow: hidden;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 900px) {
+  .card-inner { padding: 32px; }
 }
 
 /* Glass-Noise overlay inside cards */
@@ -339,6 +500,18 @@ a {
 .stock-card {
   grid-column: span 4;
   grid-row: span 1;
+}
+
+.spec-card {
+  grid-column: span 4;
+  grid-row: span 1;
+}
+
+@media (max-width: 900px) {
+  .main-text-card, .stock-card, .spec-card {
+    grid-column: span 1 !important;
+    grid-row: auto !important;
+  }
 }
 
 .spec-card {
@@ -491,42 +664,50 @@ a {
 
 @media (max-width: 900px) {
   .look-grid { grid-template-columns: 1fr; }
-  .item-main, .item-side-1, .item-side-2 { grid-column: span 1; grid-row: auto; }
+  .item-main, .item-side-1, .item-side-2 { grid-column: span 1; }
 }
 
 /* ════════════════════════════════════════════════
-   ARGUMENTO + CONTADOR
-   ════════════════════════════════════════════════ */
-/* ════════════════════════════════════════════════
-   FULLBLEED
+   FULLBLEED IMAGE SECTION
    ════════════════════════════════════════════════ */
 .fullbleed {
   position: relative;
   width: 100%;
-  height: 80svh;
+  height: 100vh;
+  min-height: 600px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
 }
 
 .fullbleed img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  filter: grayscale(1);
+  object-fit: cover;
+  z-index: 1;
 }
 
 .fullbleed-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  text-align: center;
+  position: relative;
+  z-index: 2;
   font-family: var(--f-display);
-  font-size: clamp(3rem, 15vw, 12rem);
-  text-transform: uppercase;
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 900;
+  font-style: italic;
   line-height: 0.8;
+  color: var(--cream);
+  text-align: center;
   mix-blend-mode: difference;
+  pointer-events: none;
 }
 
+@media (max-width: 900px) {
+  .fullbleed { height: 70vh; }
+}
 /* ════════════════════════════════════════════════
    ADQUISICIÓN (REFINED)
    ════════════════════════════════════════════════ */
@@ -557,6 +738,14 @@ a {
   display: grid; 
   grid-template-columns: 1fr 1fr; 
   gap: 40px; 
+}
+
+@media (max-width: 900px) {
+  .adquisicion { padding: 100px 24px; }
+  .productos-grid { 
+    grid-template-columns: 1fr; 
+    gap: 24px;
+  }
 }
 
 .producto-card { 
@@ -622,9 +811,18 @@ a {
   gap: 24px; 
 }
 
+@media (max-width: 900px) {
+  .pc-content { padding: 24px; gap: 16px; }
+}
+
 .pc-top { display: flex; justify-content: space-between; align-items: baseline; }
 .pc-title { font-family: var(--f-display); font-size: 2rem; font-style: italic; color: var(--cream); }
 .pc-price { font-family: var(--f-data); font-size: 1.1rem; color: var(--accent); font-weight: 700; }
+
+@media (max-width: 900px) {
+  .pc-title { font-size: 1.6rem; }
+  .pc-price { font-size: 0.9rem; }
+}
 
 .pc-description {
   font-family: var(--f-sans);
@@ -675,6 +873,10 @@ a {
   padding: 180px 40px;
 }
 
+@media (max-width: 900px) {
+  .archivo { padding: 80px 24px; }
+}
+
 .archivo-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -701,6 +903,34 @@ a {
   border-bottom: 1px solid rgba(255,255,255,0.05);
   align-items: center;
   transition: background 0.3s ease;
+}
+
+@media (max-width: 900px) {
+  .archivo-row {
+    grid-template-columns: 50px 1fr 100px;
+    padding: 16px 8px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 400px) {
+  .archivo-row {
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    padding: 20px 8px;
+  }
+  
+  .arch-col-id { font-weight: 700; color: var(--accent); }
+  .arch-col-name { 
+    grid-column: span 2; 
+    font-size: 13px; 
+    order: 3;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+  .arch-col-status { font-size: 9px; text-align: right; }
+
+  .archivo { padding-bottom: 120px; } /* Safe zone for WA button */
 }
 
 .archivo-row:hover {
@@ -773,6 +1003,15 @@ footer {
   margin-bottom: 120px;
 }
 
+@media (max-width: 900px) {
+  footer { padding: 80px 24px 40px 24px; }
+  .footer-grid { 
+    grid-template-columns: 1fr; 
+    gap: 48px;
+    margin-bottom: 80px;
+  }
+}
+
 .footer-label {
   display: block;
   font-family: var(--f-data);
@@ -815,6 +1054,15 @@ footer {
   justify-content: space-between;
   align-items: flex-end;
   padding-top: 80px;
+}
+
+@media (max-width: 900px) {
+  .footer-bottom {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 40px;
+    padding-top: 40px;
+  }
 }
 
 .footer-bottom-info {
@@ -919,6 +1167,19 @@ footer {
   box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
 }
 
+@media (max-width: 900px) {
+  .whatsapp-btn {
+    bottom: 32px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+  }
+  .whatsapp-btn svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
 .whatsapp-btn:hover {
   transform: scale(1.1) rotate(5deg);
   box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
@@ -931,9 +1192,5 @@ footer {
 
 @media (max-width: 900px) {
   .argumento-inner {
-  }
-
-  .hero {
-    padding: 0 20px 40px 20px;
   }
 }

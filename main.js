@@ -81,7 +81,25 @@ document.querySelectorAll('.producto-card, .bento-card').forEach(card => {
   });
 });
 
-/* Magnetic Buttons */
+// Mobile Menu Toggle
+const navElement = document.getElementById('nav');
+const toggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+if (toggle) {
+  toggle.addEventListener('click', () => {
+    navElement.classList.toggle('menu-active');
+    document.body.style.overflow = navElement.classList.contains('menu-active') ? 'hidden' : '';
+  });
+}
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    navElement.classList.remove('menu-active');
+    document.body.style.overflow = '';
+  });
+});
+
 if (window.matchMedia('(hover: hover)').matches) {
   document.querySelectorAll('.pc-btn, .nav-cta').forEach(el => {
     el.addEventListener('mousemove', (e) => {
