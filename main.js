@@ -6,6 +6,40 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
 
+/* Hero Parallax */
+const heroBg = document.querySelector('.hero-bg');
+if (heroBg) {
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    heroBg.style.transform = `translateY(${scrolled * 0.4}px) scale(${1 + scrolled * 0.0005})`;
+  }, { passive: true });
+}
+
+/* Scrub Text Reveal (Word by Word) */
+const scrubContainer = document.getElementById('scrub-manifesto');
+if (scrubContainer) {
+  const text = scrubContainer.innerText;
+  // Mantener espacios naturales usando inline spans
+  scrubContainer.innerHTML = text.split(' ').map(word => `<span class="scrub-word">${word}</span>`).join(' ');
+  
+  const words = scrubContainer.querySelectorAll('.scrub-word');
+  
+  const scrubObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        words.forEach((word, i) => {
+          setTimeout(() => {
+            word.classList.add('active');
+          }, i * 40); // Slightly slower for better readability
+        });
+        scrubObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 }); // Trigger earlier
+  
+  scrubObserver.observe(scrubContainer);
+}
+
 /* Animación del contador */
 const animateValue = (el, start, end, duration) => {
   let startTs = null;
@@ -18,7 +52,7 @@ const animateValue = (el, start, end, duration) => {
   requestAnimationFrame(step);
 };
 
-/* Scroll reveal */
+/* Scroll reveal con Stagger */
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
@@ -30,43 +64,34 @@ const observer = new IntersectionObserver((entries) => {
         counters.forEach(c => {
           animateValue(c, 0, parseInt(c.dataset.count), 1400);
         });
-      }, 250);
+      }, 400);
     }
-
     observer.unobserve(entry.target);
   });
-}, {
-  threshold: 0.08,
-  rootMargin: '0px 0px 40px 0px',
-});
+}, { threshold: 0.1 });
 
 document.querySelectorAll('[data-enter]').forEach(el => observer.observe(el));
 
-/* Nu-Brutalism: Magnetic Buttons (solo en desktop) */
+/* Spotlight Effect para Cards */
+document.querySelectorAll('.producto-card, .bento-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+    card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+  });
+});
+
+/* Magnetic Buttons */
 if (window.matchMedia('(hover: hover)').matches) {
-  const magneticElements = document.querySelectorAll('.producto-cta, .archivo-cta');
-
-  magneticElements.forEach(el => {
+  document.querySelectorAll('.pc-btn, .nav-cta').forEach(el => {
     el.addEventListener('mousemove', (e) => {
-      // Para evitar el loop de rect, obtenemos el centro de manera aproximada
       const rect = el.getBoundingClientRect();
-      const h = rect.width / 2;
-      const v = rect.height / 2;
-      
-      // x e y en relación al centro original de la caja
-      const x = e.clientX - rect.left - h;
-      const y = e.clientY - rect.top - v;
-      
-      // Amortiguamos fuertemente el movimiento para que no se escape
-      el.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      el.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
     });
-
-    el.addEventListener('mouseenter', () => {
-      el.style.transition = 'none';
-    });
-
     el.addEventListener('mouseleave', () => {
-      el.style.transition = 'transform 400ms cubic-bezier(0.25, 1, 0.5, 1)';
+      el.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)';
       el.style.transform = `translate(0px, 0px)`;
     });
   });
