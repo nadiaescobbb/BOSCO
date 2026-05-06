@@ -4,21 +4,23 @@
    TOKENS & BASE
    ════════════════════════════════════════════════ */
 :root {
-  --bg: #0C0A09;
-  --bg-soft: #14110F;
-  --cream: #F8F5F2;
+  --bg: #0A0908;
+  --bg-soft: #12100E;
+  --cream: #FDFCFB;
   --accent: #C59D3F;
-  /* Slightly more muted/elegant gold */
-  --accent-muted: rgba(197, 157, 63, 0.15);
+  --accent-muted: rgba(197, 157, 63, 0.12);
   --muted: #8E8884;
-  --line: rgba(255, 255, 255, 0.05);
+  --line: rgba(255, 255, 255, 0.04);
   --wa: #25D366;
   --f-display: "Playfair Display", serif;
-  --f-sans: "Barlow Condensed", sans-serif;
-  --f-data: "Space Mono", monospace;
+  --f-sans: "Geist", system-ui, -apple-system, sans-serif;
+  --f-data: "Geist Mono", monospace;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-inner: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-inner: rgba(255, 255, 255, 0.02);
+  --radius-lg: 2.5rem;
+  --radius-md: 1.5rem;
+  --radius-sm: 0.75rem;
 }
 
 * {
@@ -461,13 +463,12 @@ a {
    MASTER SPREAD MANIFESTO
    ════════════════════════════════════════════════ */
 .manifesto-master {
-  padding: 160px 60px;
+  padding: 240px 60px; /* Increased padding for Art Gallery Mode */
   background: var(--bg);
-  border-top: 1px solid var(--line);
 }
 
 .master-container {
-  max-width: 1440px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -771,9 +772,9 @@ a {
 
 .look-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: minmax(300px, auto);
-  gap: 32px;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: repeat(2, 450px);
+  gap: 24px;
 }
 
 .look-item {
@@ -800,18 +801,19 @@ a {
 }
 
 .item-main {
-  grid-column: span 7;
+  grid-column: span 2;
   grid-row: span 2;
+  border-radius: var(--radius-lg);
 }
 
 .item-side-1 {
-  grid-column: span 5;
+  grid-column: span 1;
   grid-row: span 1;
 }
 
 .item-side-2 {
-  grid-column: span 5;
-  grid-row: span 1;
+  grid-column: span 1;
+  grid-row: 2;
 }
 
 @media (max-width: 900px) {
@@ -832,7 +834,7 @@ a {
 .fullbleed {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   min-height: 600px;
   overflow: hidden;
   display: flex;
@@ -921,18 +923,20 @@ a {
 }
 
 .producto-card {
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 2.5rem;
+  background: #11100F;
+  border-radius: var(--radius-lg);
   padding: 1px;
-  background: radial-gradient(400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-      rgba(255, 255, 255, 0.15),
-      transparent 40%), rgba(255, 255, 255, 0.05);
-  transition: transform 0.8s var(--ease);
+  background: radial-gradient(600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+      rgba(197, 157, 63, 0.1),
+      transparent 40%), var(--bg-soft);
+  transition: transform 0.8s var(--ease), box-shadow 0.8s var(--ease);
   position: relative;
+  box-shadow: 0 20px 40px -15px rgba(0,0,0,0.4);
 }
 
 .producto-card:hover {
-  transform: translateY(-16px);
+  transform: translateY(-12px);
+  box-shadow: 0 40px 80px -20px rgba(0,0,0,0.6);
 }
 
 .pc-inner {
