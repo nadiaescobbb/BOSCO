@@ -435,7 +435,8 @@ a {
 
 @media (max-width: 900px) {
   .declaracion {
-    padding: 100px 24px;
+    padding: 60px 24px;
+    min-height: auto;
   }
 }
 
@@ -488,11 +489,11 @@ a {
 @media (max-width: 900px) {
   .master-grid {
     grid-template-columns: 1fr;
-    gap: 80px;
+    gap: 60px;
   }
 
   .manifesto-master {
-    padding: 80px 24px;
+    padding: 60px 24px;
   }
 }
 
@@ -817,14 +818,22 @@ a {
 }
 
 @media (max-width: 900px) {
+  .lookbook-bento {
+    padding: 40px 20px;
+  }
+
   .look-grid {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 16px;
   }
 
   .item-main,
   .item-side-1,
   .item-side-2 {
     grid-column: span 1;
+    grid-row: auto;
+    height: 350px;
   }
 }
 
