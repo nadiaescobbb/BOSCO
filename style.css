@@ -453,7 +453,6 @@ a {
   font-family: var(--f-display);
   font-size: clamp(1.5rem, 4.5vw, 2.8rem);
   font-weight: 900;
-  text-transform: uppercase;
   line-height: 1.5;
   color: var(--cream);
   text-align: center;
@@ -517,7 +516,6 @@ a {
   line-height: 1.05;
   letter-spacing: -0.04em;
   color: var(--cream);
-  text-transform: uppercase;
 }
 
 .master-description {
