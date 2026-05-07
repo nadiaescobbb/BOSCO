@@ -863,10 +863,11 @@ a {
   position: relative;
   z-index: 2;
   font-family: var(--f-display);
-  font-size: clamp(4rem, 15vw, 12rem);
+  font-size: clamp(2.5rem, 10vw, 8.5rem);
   font-weight: 900;
   font-style: italic;
-  line-height: 0.8;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
   color: var(--cream);
   text-align: center;
   mix-blend-mode: difference;
