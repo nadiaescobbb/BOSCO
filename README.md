@@ -6,20 +6,29 @@ Landing page para BOSCO Argentina, una marca de alfajores artesanales de edició
 
 ## Qué es el proyecto
 
-BOSCO lanza el clásico alfajor de maicena en formato coleccionable: 75 unidades numeradas, con tarjeta incluida. El reto era construir una página que transmitiera esa exclusividad y mandara la venta directo a WhatsApp, sin carritos ni plataformas de terceros.
+BOSCO lanza el clásico alfajor de maicena en formato coleccionable: 75 unidades numeradas. El reto fue construir una experiencia digital que transmitiera esa exclusividad técnica y editorial, eliminando cualquier fricción en el proceso de compra (WhatsApp Direct).
 
 ---
 
-## Stack
+## Enfoque de Diseño y UX
 
-HTML5 · CSS3 · JavaScript vanilla (ES6+)
+Este sitio no solo es una pieza estética; fue auditado y optimizado bajo dos pilares fundamentales:
 
-Sin frameworks. Sin librerías. El JS que tiene son ~70 líneas para las animaciones de scroll y el efecto magnético en los botones. El resto es HTML y CSS puro.
+1. **Claridad Cognitiva (Steve Krug):** Aplicación de principios de *"Don't Make Me Think"*. Se eliminó el ruido visual, se simplificó la navegación y se optimizó la legibilidad mediante el uso estratégico de cajas de texto y jerarquía tipográfica.
+2. **Copywriting de Respuesta Directa (David Ogilvy):** Redacción enfocada en hechos y autoridad. Se optimizaron los CTAs para ser imperativos ("Asegurá tu caja") y se eliminaron las redundancias para mantener la atención en la propuesta de valor.
 
-- Animaciones con Intersection Observer API
-- Tipografía responsive con `clamp()`
-- SEO: Schema Markup JSON-LD, Open Graph, sitemap y robots.txt
-- CSS organizado con variables custom properties desde el principio
+---
+
+## Stack Técnico
+
+**HTML5 · CSS3 · JavaScript vanilla (ES6+)**
+
+Sin frameworks. Sin librerías. El proyecto se basa en la soberanía técnica: entender cada línea de código.
+
+- **Layout:** Grillas "Bento" personalizadas y diseño fluido con `clamp()`.
+- **Performance:** Animaciones nativas a 60fps con Intersection Observer.
+- **Efectos:** Spotlight dinámico en tarjetas y efecto magnético en CTAs.
+- **SEO & Social:** Schema JSON-LD, Open Graph completo y auditoría de accesibilidad.
 
 ---
 
@@ -27,10 +36,10 @@ Sin frameworks. Sin librerías. El JS que tiene son ~70 líneas para las animaci
 
 ```
 bosco/
-├── index.html      
-├── style.css       
-├── main.js         
-├── assets/         
+├── index.html      # Estructura semántica
+├── style.css       # Sistema de diseño y tokens
+├── main.js         # Lógica de interacción y animaciones
+├── assets/         # Recursos optimizados
 ├── sitemap.xml
 └── robots.txt
 ```
@@ -39,10 +48,10 @@ bosco/
 
 ## Desarrollado por
 
-**Nadia Escobar** — trabajo como freelance bajo el nombre Trama Studio.
+**Nadia Escobar** — **Trama Studio**.
 
-Me gusta hacer sitios sin dependencias innecesarias, donde entiendo cada línea de lo que escribo. Este proyecto lo hice de punta a punta: concepto, diseño y código.
+Especializada en crear interfaces de alta autoridad donde el concepto, el diseño y el código convergen en una sola pieza de comunicación.
 
 - Instagram: [@trama.sstudio](https://instagram.com/trama.sstudio)
 - GitHub: [@nadiaescobbb](https://github.com/nadiaescobbb)
-- Resistencia, Chaco · Trabajo remoto
+- Resistencia, Chaco · Argentina
