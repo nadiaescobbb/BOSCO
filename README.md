@@ -1,57 +1,70 @@
-# BOSCO — Edición 01
+# BOSCO - Edición 01
 
-Landing page para BOSCO Argentina, una marca de alfajores artesanales de edición limitada. El sitio está en producción en [universobosco.com.ar](https://universobosco.com.ar).
+Landing page editorial para BOSCO Argentina, una marca de alfajores artesanales de edición limitada. El sitio está en producción en [universobosco.com.ar](https://universobosco.com.ar).
 
----
-
-## Qué es el proyecto
-
-BOSCO lanza el clásico alfajor de maicena en formato coleccionable: 75 unidades numeradas. El reto fue construir una experiencia digital que transmitiera esa exclusividad técnica y editorial, eliminando cualquier fricción en el proceso de compra (WhatsApp Direct).
+BOSCO presenta un alfajor de maicena en formato coleccionable: 75 unidades numeradas. La experiencia digital tenía que comunicar exclusividad, deseo visual y compra directa sin sumar fricción.
 
 ---
 
-## Enfoque de Diseño y UX
+## Contexto
 
-Este sitio no solo es una pieza estética; fue auditado y optimizado bajo dos pilares fundamentales:
-
-1. **Claridad Cognitiva (Steve Krug):** Aplicación de principios de *"Don't Make Me Think"*. Se eliminó el ruido visual, se simplificó la navegación y se optimizó la legibilidad mediante el uso estratégico de cajas de texto y jerarquía tipográfica.
-2. **Copywriting de Respuesta Directa (David Ogilvy):** Redacción enfocada en hechos y autoridad. Se optimizaron los CTAs para ser imperativos ("Asegurá tu caja") y se eliminaron las redundancias para mantener la atención en la propuesta de valor.
+El desafío no era crear una landing genérica de producto. La página tenía que sostener una idea de marca: pocas unidades, una edición precisa y una compra que se sintiera simple, cuidada y memorable.
 
 ---
 
-## Stack Técnico
+## Mi rol
 
-**HTML5 · CSS3 · JavaScript vanilla (ES6+)**
+Diseño UI, desarrollo frontend, dirección visual, copy de conversión, optimización responsive, SEO técnico y flujo de compra vía WhatsApp Direct.
 
-Sin frameworks. Sin librerías. El proyecto se basa en la soberanía técnica: entender cada línea de código.
+---
 
-- **Layout:** Grillas "Bento" personalizadas y diseño fluido con `clamp()`.
-- **Performance:** Animaciones nativas a 60fps con Intersection Observer.
-- **Efectos:** Spotlight dinámico en tarjetas y efecto magnético en CTAs.
-- **SEO & Social:** Schema JSON-LD, Open Graph completo y auditoría de accesibilidad.
+## Decisiones de diseño y UX
+
+- Jerarquía editorial para reforzar percepción premium.
+- CTAs directos orientados a compra, no a navegación innecesaria.
+- Grillas tipo bento para ordenar información sin perder carácter visual.
+- Animaciones nativas con Intersection Observer para mantener performance.
+- Open Graph, Schema JSON-LD, sitemap y robots.txt para cuidar presentación pública.
+
+---
+
+## Stack
+
+- HTML5 semántico
+- CSS3
+- JavaScript vanilla
+- Intersection Observer API
+- SEO técnico
+- Responsive design
 
 ---
 
 ## Estructura
 
-```
+```text
 bosco/
-├── index.html      # Estructura semántica
-├── style.css       # Sistema de diseño y tokens
-├── main.js         # Lógica de interacción y animaciones
-├── assets/         # Recursos optimizados
+├── index.html
+├── style.css
+├── main.js
+├── assets/
 ├── sitemap.xml
 └── robots.txt
 ```
 
 ---
 
-## Desarrollado por
+## Demo
 
-**Nadia Escobar** — **Trama Studio**.
+[universobosco.com.ar](https://universobosco.com.ar)
 
-Especializada en crear interfaces de alta autoridad donde el concepto, el diseño y el código convergen en una sola pieza de comunicación.
+---
+
+## Autoría
+
+Desarrollado por **Nadia Escobar** - **Trama Studio**.
+
+Creo interfaces donde concepto, diseño y código trabajan juntos para que una marca no solo se vea bien: también venda, comunique y se recuerde.
 
 - Instagram: [@trama.sstudio](https://instagram.com/trama.sstudio)
 - GitHub: [@nadiaescobbb](https://github.com/nadiaescobbb)
-- Resistencia, Chaco · Argentina
+- Resistencia, Chaco, Argentina
